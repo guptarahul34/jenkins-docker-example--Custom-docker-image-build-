@@ -3,6 +3,7 @@ pipeline{
 
     tools {
         maven 'MAVEN'
+        dockerTool 'myDocker'
     }
 
     stages{
@@ -13,12 +14,6 @@ pipeline{
         }
 
         stage('Build Docker Image'){
-            agent{
-                docker {
-                    image 'docker'
-                    reuseNode true  
-                }
-            }
             steps{
                 sh "docker build -t rahulgupta9794/maven:$BUILD_NUMBER ."
             }
