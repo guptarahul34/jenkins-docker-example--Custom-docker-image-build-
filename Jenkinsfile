@@ -24,6 +24,9 @@ pipeline{
                     sh 'echo $dockerhub_PASSWORD | docker login -u $dockerhub_ID --password-stdin'
                     // sh "echo $dockerhub"
                 }
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', passwordVariable: 'token', usernameVariable: 'Dockerhub')]) {
+                    sh 'echo $token | docker login -u $Dockerhub --password-stdin'
+                }
             }
         }
     }
