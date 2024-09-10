@@ -14,7 +14,7 @@ pipeline{
 
         stage('Build Docker Image'){
             steps{
-                sh 'pwd'
+                sh "docker build -t rahulgupta9794/maven:$BUILD_NUMBER ."
             }
         }
     }
