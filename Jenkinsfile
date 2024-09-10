@@ -21,8 +21,8 @@ pipeline{
         stage('Push Image DockerHub'){
             steps{
                 withCredentials([usernameColonPassword(credentialsId: 'dockerhub-credentials', variable: 'dockerhub')]) {
-                    // sh 'docker login '
-                    sh "echo $dockerhub"
+                    sh 'echo $dockerhub_password | docker login -u $dockerhub_id --password-stdin'
+                    // sh "echo $dockerhub"
                 }
             }
         }
