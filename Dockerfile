@@ -1,5 +1,5 @@
 FROM openjdk
-RUN javadir
+RUN mkdir javadir
 WORKDIR javadir
 COPY target/*.jar javadir
 EXPOSE 8080
