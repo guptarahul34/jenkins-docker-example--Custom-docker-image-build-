@@ -3,7 +3,7 @@ pipeline{
 
     tools {
         maven 'MAVEN'
-        dockerTool 'myDocker'
+        dockerTool 'myDocker' -v /var/run/docker.sock:/var/run/docker.sock \
     }
 
     stages{
