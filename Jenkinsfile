@@ -11,5 +11,11 @@ pipeline{
                 sh 'mvn clean package -Dmaven.clean.skip=true'
             }
         }
+
+        stage('Build Docker Image'){
+            steps{
+                sh 'pwd'
+            }
+        }
     }
 }
